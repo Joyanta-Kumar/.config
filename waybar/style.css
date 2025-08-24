@@ -1,0 +1,228 @@
+@define-color background #001014;
+@define-color foreground #405555;
+@define-color cursor #49fcd5;
+@define-color selection_background #415554;
+@define-color color0 #012026;
+@define-color color8 #374350;
+@define-color color1 #b12f2c;
+@define-color color9 #ff4242;
+@define-color color2 #00a940;
+@define-color color10 #2aea5e;
+@define-color color3 #5d8aa9;
+@define-color color11 #8dd3fd;
+@define-color color4 #449985;
+@define-color color12 #61d4b9;
+@define-color color5 #00599c;
+@define-color color13 #1298ff;
+@define-color color6 #5c7e19;
+@define-color color14 #98cf28;
+@define-color color7 #405554;
+@define-color color15 #58fad6;
+
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  transition: all 0;
+}
+
+window#waybar {
+  background-color: alpha(@background, 0.75);
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+  background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+  background-color: #000000;
+  border: none;
+}
+
+button {
+  background-color: transparent;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background-color: transparent;
+}
+
+#workspaces button {}
+
+#workspaces button:hover {}
+
+#workspaces button.focused {
+  /* I don't know what it is */
+}
+
+#workspaces button.urgent {}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#backlight,
+#network,
+#pulseaudio,
+#power-profiles-daemon,
+#workspaces {
+  color: @color3;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: @background;
+}
+
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#power-profiles-daemon:hover,
+#workspaces:hover {
+  color: white;
+}
+
+#window {
+  padding-left: 8px;
+}
+
+#workspaces {
+  padding: 0;
+  box-shadow: inset 0 -3px orange;
+}
+
+#workspaces>* {
+  padding: 4px;
+}
+
+#workspaces>*:first-child {
+  padding-left: 8px;
+}
+
+#workspaces>*:last-child {
+  padding-right: 8px;
+}
+
+#network,
+#power-profiles-daemon,
+#battery {
+  padding-right: 14px;
+}
+
+#clock {
+  box-shadow: inset 0 -3px green;
+}
+
+#clock:hover {
+  background-color: shade(green, 0.5);
+}
+
+#battery {
+  box-shadow: inset 0 -3px greenyellow;
+}
+
+#battery:hover {
+  background-color: shade(greenyellow, 0.5);
+}
+
+#battery.charging,
+#battery.plugged {}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {}
+
+#power-profiles-daemon {
+  box-shadow: inset 0 -3px skyblue;
+}
+
+#power-profiles-daemon:hover {
+  background-color: shade(skyblue, 0.5);
+}
+
+#power-profiles-daemon.performance {
+  padding-right: 11px;
+  padding-left: 11px;
+}
+
+#power-profiles-daemon.balanced {}
+
+#power-profiles-daemon.power-saver {}
+
+label:focus {
+  /* I don't know what this is. */
+}
+
+#cpu {
+  box-shadow: inset 0 -3px red;
+}
+
+#cpu:hover {
+  background-color: shade(red, 0.5);
+}
+
+#memory {
+  box-shadow: inset 0 -3px violet;
+}
+
+#memory:hover {
+  background-color: shade(violet, 0.5);
+  color: black;
+}
+
+#disk {
+  box-shadow: inset 0 -3px blue;
+}
+
+#disk:hover {
+  background-color: shade(blue, 0.5);
+}
+
+
+#backlight {
+  box-shadow: inset 0 -3px white;
+}
+
+#backlight:hover {
+  background-color: shade(white, 0.5);
+  color: black;
+}
+
+#network {
+  box-shadow: inset 0 -3px mediumseagreen;
+}
+
+#network:hover {
+  background-color: shade(mediumseagreen, 0.5);
+}
+
+#network.disconnected {}
+
+#pulseaudio {
+  box-shadow: inset 0 -3px yellow;
+}
+
+#pulseaudio:hover {
+  background-color: shade(yellow, 0.5);
+}
+
+#pulseaudio.muted {}
